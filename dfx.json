@@ -1,0 +1,50 @@
+{
+  "canisters": {
+    "AquaGuardians_backend": {
+      "build": "npx azle AquaGuardians_backend",
+      "candid": "src/AquaGuardians_backend/AquaGuardians_backend.did",
+      "gzip": true,
+      "main": "src/AquaGuardians_backend/src/index.ts",
+      "tech_stack": {
+        "cdk": {
+          "azle": {}
+        },
+        "language": {
+          "javascript": {},
+          "typescript": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".azle/AquaGuardians_backend/AquaGuardians_backend.wasm"
+    },
+    "AquaGuardians_frontend": {
+      "dependencies": [
+        "AquaGuardians_backend"
+      ],
+      "source": [
+        "src/AquaGuardians_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "AquaGuardians_frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
