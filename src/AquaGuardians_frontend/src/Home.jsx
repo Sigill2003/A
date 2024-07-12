@@ -1,6 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
-import { useRestActor, AuthButton } from "@bundly/ic-react";
+import { useRestActor } from "@bundly/ic-react";
 
 export const Home = () => {
     const bnd = useRestActor("backend");
@@ -8,12 +7,13 @@ export const Home = () => {
     const getDB = async () => {
         try {
             const res = await bnd.get("/obtener-datos");
-
+            console.log(res);
         } catch (error) {
             console.log("Error", error)
         }
     }
-    getDB()
+    getDB();
+
     return (
         <html lang="es">
             <head>
@@ -23,18 +23,19 @@ export const Home = () => {
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
             </head>
             <body>
-                <header class="header d-flex justify-content-between align-items-center">
-                    <h1 class="ml-3">AquaGuardian</h1>
+                <header className="header d-flex justify-content-between align-items-center">
+                    <h1 className="ml-3">AquaGuardian</h1>
+                    <img src="\\wsl.localhost\Ubuntu\home\sigi\AquaGuardians\imagen.jpg" alt="Logo AquaGuardian" className="mr-3" style={{ height: '50px' }} />
                 </header>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <div className="card mb-4">
+                                <div className="card-header">
                                     <h3>Información de Sensores</h3>
                                 </div>
-                                <div class="card-body">
+                                <div className="card-body">
                                     <p><strong>Sensor de PH:</strong> Mide el nivel de acidez o alcalinidad del agua.</p>
                                     <p><strong>Sensor de Turbidez:</strong> Mide la claridad del agua y detecta la presencia de partículas suspendidas.</p>
                                     <p><strong>Sensor de Conductividad:</strong> Mide la capacidad del agua para conducir electricidad, lo que indica la concentración de iones presentes en el agua.</p>
@@ -42,24 +43,24 @@ export const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
+                        <div className="col-md-6">
+                            <div className="card mb-4">
+                                <div className="card-header">
                                     <h3>Gráfica de Calidad del Agua</h3>
                                 </div>
-                                <div class="card-body">
+                                <div className="card-body">
                                     <canvas id="waterQualityChart"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-header">
+                    <div className="row">
+                        <div className="col">
+                            <div className="card">
+                                <div className="card-header">
                                     <h3>Información Detallada de Sensores</h3>
                                 </div>
-                                <div class="card-body">
+                                <div className="card-body">
                                     <p><strong>Sensor de PH:</strong> El nivel de pH mide la acidez o alcalinidad del agua. Es crucial mantener el pH en un rango adecuado para asegurar que el agua sea segura para su uso.</p>
                                     <p><strong>Sensor de Turbidez:</strong> La turbidez mide la claridad del agua. Un agua con alta turbidez puede contener partículas en suspensión que pueden afectar la calidad del agua y su idoneidad para ciertos usos.</p>
                                     <p><strong>Sensor de Conductividad:</strong> La conductividad mide la capacidad del agua para conducir electricidad, lo que está relacionado con la cantidad de iones disueltos en el agua. Es un indicador importante de la salinidad del agua.</p>
@@ -76,6 +77,5 @@ export const Home = () => {
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             </body>
         </html>
-
     );
-}
+};
