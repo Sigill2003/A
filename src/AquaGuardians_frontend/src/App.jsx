@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Home } from './Home';
+import Home from './Home';
 
 export default function App() {
   const router = createBrowserRouter([
